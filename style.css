@@ -8,7 +8,7 @@ p{
     font-size: 20px;
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
-@media (max-width:430px){
+@media (max-width:400px){
 	img{
 		height: 400px;
 		width:400px;
