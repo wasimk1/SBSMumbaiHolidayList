@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Tools</title>
+</head>
+<body>
+  <input type="radio" id="showHoliday" name="imageSelector" />
+  <label for="showHoliday">Holiday List 2026</label>
+
+  <input type="radio" id="showOffice" name="imageSelector" checked />
+  <label for="showOffice">Mumbai Local Train Map</label>
+
+  <div id="holidayImage" class="image-container">
+    <img class="zoomable" src="images/mumbaiholidaylist2026.jpg" alt="Holiday List 2026"/>
+  </div>
+
+  <div id="officeImage" class="image-container">
+    <img class="zoomable" src="images/MumbaiLocalTrainMap.jpeg" alt="Local Train Map" />
+  </div>
+
+  <!-- <div id="imageModal" class="modal">
+    <span class="close-button">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div> -->
+
+  <script src="script.js"></script>
+
+</body>
+</html>
