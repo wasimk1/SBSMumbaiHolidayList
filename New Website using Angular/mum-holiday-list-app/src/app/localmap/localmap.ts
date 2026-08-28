@@ -7,6 +7,6 @@ import { Component } from '@angular/core';
   templateUrl: './localmap.html',
 })
 export class Localmap {
-  strLocalMapName: string = '/images/MumbaiLocalTrainMap.jpeg';
+  strLocalMapName: string = 'images/MumbaiLocalTrainMap.jpeg';
   strAltImageName: string = 'mumbai local map';
 }
