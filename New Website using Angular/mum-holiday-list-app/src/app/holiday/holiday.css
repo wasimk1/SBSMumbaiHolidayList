@@ -95,3 +95,75 @@ tbody tr:hover {
 .day-name {
   font-weight: 500;
 }
+
+@media (max-width: 768px) {
+  .holiday-main {
+    padding: 10px 5px;
+  }
+
+  .holiday-container {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  .holiday-title {
+    padding: 12px 8px;
+  }
+
+  .holiday-title h1 {
+    font-size: 20px;
+  }
+
+  .holiday-title p {
+    font-size: 11px;
+  }
+
+  .tableofholidays {
+    width: 100%;
+    overflow-x: hidden;
+  }
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  th,
+  td {
+    padding: 8px 4px;
+    font-size: 11px;
+    word-wrap: break-word;
+  }
+
+  /* Column widths */
+
+  th:nth-child(1),
+  td:nth-child(1) {
+    width: 8%;
+    text-align: center;
+  }
+
+  th:nth-child(2),
+  td:nth-child(2) {
+    width: 18%;
+  }
+
+  th:nth-child(3),
+  td:nth-child(3) {
+    width: 22%;
+  }
+
+  th:nth-child(4),
+  td:nth-child(4) {
+    width: 16%;
+  }
+
+  th:nth-child(5),
+  td:nth-child(5) {
+    width: 36%;
+  }
+
+  .holiday-name {
+    font-size: 11px;
+  }
+}
