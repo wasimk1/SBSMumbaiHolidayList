@@ -1,24 +1,97 @@
 .holiday-main {
-  width: 100%;
-  padding: 30px 20px;
-
-  display: flex;
-  justify-content: center;
+  padding: 20px 15px;
+  /* background-color: #fffae8; */
 }
 
-.image {
-  width: 100%;
-  max-width: 1200px;
+.holiday-container {
+  max-width: 950px;
+  margin: auto;
+  background: #ffffff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(1, 62, 55, 0.12);
 }
 
-.image img {
+/* Title */
+
+.holiday-title {
+  background-color: #013e37;
+  color: #ffefb3;
+  text-align: center;
+  padding: 18px 15px;
+}
+
+.holiday-title h1 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.holiday-title p {
+  margin: 4px 0 0;
+  font-size: 13px;
+}
+
+/* Table Container */
+
+.tableofholidays {
   width: 100%;
-  height: auto;
+  overflow-x: hidden;
+}
 
-  display: block;
+/* Table */
 
-  object-fit: contain;
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto;
+}
 
-  border-radius: 10px;
-  box-shadow: 0 4px 15px rgba(1, 62, 55, 0.2);
+/* Header */
+
+thead {
+  background-color: #013e37;
+  color: white;
+}
+
+th {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* Table Data */
+
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid #eeeeee;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Alternate Rows */
+
+tbody tr:nth-child(even) {
+  background-color: #fffdf5;
+}
+
+/* Hover */
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: #ffefb3;
+}
+
+/* Specific Columns */
+
+.month-name,
+.holiday-name {
+  font-weight: 600;
+  color: #013e37;
+}
+
+.day-name {
+  font-weight: 500;
 }

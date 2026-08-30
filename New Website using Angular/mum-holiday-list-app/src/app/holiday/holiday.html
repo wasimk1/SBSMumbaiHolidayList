@@ -1,5 +1,44 @@
 <div class="holiday-main">
-  <div class="image">
-    <img [src]="strImageName" [alt]="strAltName" />
+  <div class="holiday-container">
+    <div class="holiday-title">
+      <h1>📅 Holiday List</h1>
+      <p>Official Holiday Calendar</p>
+    </div>
+
+    <div class="tableofholidays">
+      <table>
+        <thead>
+          <tr>
+            @for (headers of tableHeader; track headers) {
+              <th>{{ headers }}</th>
+            }
+          </tr>
+        </thead>
+
+        <tbody>
+          @for (months of tableData; track months.strMonthName; let index = $index) {
+            @for (holiday of months.strHolidayName; track holiday; let holidayindex = $index) {
+              <tr>
+                <td>{{ getSrNo(index, holidayindex) }}</td>
+
+                <td class="month-name">
+                  {{ months.strMonthName }}
+                </td>
+
+                <td>
+                  {{ months.HolidayDate[holidayindex] | date: 'dd MMM yyyy' }}
+                </td>
+
+                <td class="day-name">
+                  {{ getDay(months.HolidayDate[holidayindex]) }}
+                </td>
+
+                <td class="holiday-name">{{ holiday }}</td>
+              </tr>
+            }
+          }
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
