@@ -167,3 +167,22 @@ tbody tr:hover {
     font-size: 11px;
   }
 }
+.upcoming-holiday {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+
+  max-width: 500px;
+  margin: 10px auto 10px;
+  padding: 5px 20px;
+
+  background: #ffefb3;
+  color: #013e37;
+
+  border-radius: 8px;
+  border: 1px solid #e0c96b;
+
+  font-size: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+}

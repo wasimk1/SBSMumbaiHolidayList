@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   imports: [DatePipe],
@@ -7,11 +7,13 @@ import { Component } from '@angular/core';
   styleUrl: './holiday.css',
   templateUrl: './holiday.html',
 })
-export class Holiday {
+export class Holiday implements OnInit {
   //strImageName: string = 'images/mumbaiholidaylist2026.jpg';
   strImageName: string = '';
   strAltName: string = 'mumbai holiday list 2026';
   intSrNo: number = 0;
+  upcomingHoliday: any;
+
   getDay(date: Date): string {
     return date.toLocaleDateString('en-US', {
       weekday: 'long',
@@ -69,4 +71,36 @@ export class Holiday {
       HolidayDate: [new Date('2026-12-25')],
     },
   ];
+
+  getUpcomingHoliday() {
+    const today = new Date();
+
+    // Remove the time
+    today.setHours(0, 0, 0, 0);
+
+    let upcomingHoliday: any = null;
+
+    for (const month of this.tableData) {
+      for (let i = 0; i < month.HolidayDate.length; i++) {
+        const holidayDate = new Date(month.HolidayDate[i]);
+
+        // Remove the time
+        holidayDate.setHours(0, 0, 0, 0);
+
+        if (holidayDate >= today) {
+          if (upcomingHoliday === null || holidayDate < upcomingHoliday.date) {
+            upcomingHoliday = {
+              name: month.strHolidayName[i],
+              date: holidayDate,
+              month: month.strMonthName,
+            };
+          }
+        }
+      }
+    }
+    return upcomingHoliday;
+  }
+  ngOnInit() {
+    this.upcomingHoliday = this.getUpcomingHoliday();
+  }
 }
