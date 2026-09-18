@@ -1,5 +1,19 @@
-<div class="holiday-main">
-  <div class="image">
-    <img [src]="strLocalMapName" [alt]="strAltImageName" />
-  </div>
+<div class="page-shell">
+  <header class="page-heading">
+    <span class="eyebrow">Around the city</span>
+    <h1>Mumbai Local Map</h1>
+    <p>Your guide to Mumbai's local train network. Find your route before you head out.</p>
+  </header>
+  <figure class="map-card card">
+    <figcaption>
+      <strong>Mumbai local train network</strong
+      ><a class="btn-secondary" [href]="strLocalMapName" target="_blank" rel="noopener"
+        >Open full-size map ↗</a
+      >
+    </figcaption>
+    <div class="image"><img [src]="strLocalMapName" [alt]="strAltImageName" /></div>
+  </figure>
+  <p class="map-note">
+    Need a closer look? Open the full-size map to zoom in on stations and connections.
+  </p>
 </div>

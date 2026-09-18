@@ -1,15 +1,38 @@
-<nav class="main">
-  <div class="main-logo">
-    <a routerLink="/home">Just a kinda Website</a>
-  </div>
-  <div class="nav-menu">
-    <ul>
-      <li>
-        <a routerLink="/holiday" routerLinkActive="active">Holiday List</a>
-      </li>
-      <li>
-        <a routerLink="/localmap" routerLinkActive="active"> Mumbai Local Map</a>
-      </li>
-    </ul>
+<nav class="main" aria-label="Main navigation" (keydown.escape)="menuOpen = false">
+  <div class="nav-inner">
+    <a class="brand" routerLink="/home" (click)="menuOpen = false"
+      ><span class="brand-mark">SBS</span
+      ><span>Mumbai<span class="brand-subtitle">Holiday List</span></span></a
+    ><button
+      class="menu-toggle"
+      type="button"
+      (click)="menuOpen = !menuOpen"
+      [attr.aria-expanded]="menuOpen"
+      aria-controls="navigation"
+      [attr.aria-label]="menuOpen ? 'Close navigation' : 'Open navigation'"
+    >
+      <span class="hamburger" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+    <div class="nav-menu" id="navigation" [class.is-open]="menuOpen">
+      <a
+        routerLink="/home"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="menuOpen = false"
+        >Home</a
+      ><a
+        routerLink="/holiday"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="menuOpen = false"
+        >Holiday</a
+      ><a
+        routerLink="/localmap"
+        routerLinkActive="active"
+        ariaCurrentWhenActive="page"
+        (click)="menuOpen = false"
+        >Local Map</a
+      >
+    </div>
   </div>
 </nav>

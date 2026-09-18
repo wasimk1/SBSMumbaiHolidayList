@@ -1,50 +1,78 @@
-<div class="holiday-main">
-  <div class="holiday-container">
-    <div class="holiday-title">
-      <h1>📅 Holiday List</h1>
-      <p>Official Holiday Calendar</p>
-    </div>
-    @if (upcomingHoliday) {
-      <div class="upcoming-holiday">
-        Upcoming Holiday:
-        <strong>{{ upcomingHoliday.name }}</strong>
-        📅 {{ upcomingHoliday.date | date: 'dd-MMM-yyyy' }}
+<div class="page-shell">
+  <header class="page-heading">
+    <span class="eyebrow">Make room for your plans</span>
+    <h1>Holiday List</h1>
+    <p>Your Mumbai office holidays, all in one place.</p>
+  </header>
+  @if (upcomingHoliday) {
+    <section class="upcoming-holiday" aria-label="Upcoming holiday">
+      <span class="calendar-icon" aria-hidden="true">▦</span>
+      <div class="upcoming-copy">
+        <span class="upcoming-label">Next on the calendar</span
+        ><strong>{{ upcomingHoliday.name }}</strong>
       </div>
-    }
+      <span class="upcoming-date">{{ upcomingHoliday.date | date: 'EEE, dd MMM yyyy' }}</span>
+    </section>
+  }
+  <section class="holiday-container card">
+    <div class="holiday-title">
+      <div>
+        <h2>Office holiday calendar</h2>
+        <p>Official Holiday Calendar · Mumbai</p>
+      </div>
+      <span class="year-tag">{{ tableData[0].HolidayDate[0] | date: 'yyyy' }}</span>
+    </div>
     <div class="tableofholidays">
       <table>
+        <caption>
+          Mumbai office holiday calendar
+        </caption>
         <thead>
           <tr>
             @for (headers of tableHeader; track headers) {
-              <th>{{ headers }}</th>
+              <th scope="col">{{ headers }}</th>
             }
           </tr>
         </thead>
-
         <tbody>
           @for (months of tableData; track months.strMonthName; let index = $index) {
-            @for (holiday of months.strHolidayName; track holiday; let holidayindex = $index) {
-              <tr>
+            @for (holiday of months.strHolidayName; track $index; let holidayindex = $index) {
+              <tr
+                [class.next-holiday]="
+                  upcomingHoliday &&
+                  (months.HolidayDate[holidayindex] | date: 'yyyy-MM-dd') ===
+                    (upcomingHoliday.date | date: 'yyyy-MM-dd')
+                "
+                [class.past-holiday]="
+                  !upcomingHoliday ||
+                  (months.HolidayDate[holidayindex] | date: 'yyyy-MM-dd')! <
+                    (upcomingHoliday.date | date: 'yyyy-MM-dd')!
+                "
+              >
                 <td>{{ getSrNo(index, holidayindex) }}</td>
-
-                <td class="month-name">
-                  {{ months.strMonthName }}
-                </td>
-
-                <td>
+                <td class="month-name">{{ months.strMonthName }}</td>
+                <td class="date-cell">
                   {{ months.HolidayDate[holidayindex] | date: 'dd MMM yyyy' }}
                 </td>
-
-                <td class="day-name">
-                  {{ getDay(months.HolidayDate[holidayindex]) }}
+                <td class="day-name">{{ getDay(months.HolidayDate[holidayindex]) }}</td>
+                <td class="holiday-name">
+                  {{ holiday }}
+                  @if (
+                    upcomingHoliday &&
+                    (months.HolidayDate[holidayindex] | date: 'yyyy-MM-dd') ===
+                      (upcomingHoliday.date | date: 'yyyy-MM-dd')
+                  ) {
+                    <span class="upcoming-badge">Upcoming</span>
+                  }
                 </td>
-
-                <td class="holiday-name">{{ holiday }}</td>
               </tr>
             }
           }
         </tbody>
       </table>
     </div>
-  </div>
+    <p class="table-note">
+      A little time to recharge. Plan your workdays around the office calendar.
+    </p>
+  </section>
 </div>

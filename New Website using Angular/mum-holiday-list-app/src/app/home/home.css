@@ -1,98 +1,125 @@
-.home-main {
-  min-height: calc(100vh - 70px);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 30px 20px;
-
-  background-color: var(--background-color);
-}
-
 .welcome-card {
-  width: 100%;
-  max-width: 750px;
-
-  padding: 60px 40px;
-
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  align-items: center;
+  padding: 36px 40px;
+  gap: 30px;
+}
+.welcome-text {
+  margin: 18px 0 24px;
+  max-width: 380px;
+}
+.city-art {
+  background: var(--accent-light);
+  border-radius: var(--border-radius);
+  padding: 24px 18px 18px;
   text-align: center;
-
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-
-  border-radius: 20px;
-
-  box-shadow: 0 10px 30px rgba(1, 62, 55, 0.25);
 }
-
-/* Heading */
-
-.welcome-card h1 {
-  margin: 0 0 20px;
-
-  font-size: 42px;
+.city-art svg {
+  width: 100%;
+  max-width: 380px;
+  display: block;
+  margin: auto;
+}
+.city-art span {
+  display: block;
+  font-size: 8px;
   font-weight: 700;
+  letter-spacing: 1.5px;
+  margin-top: 12px;
 }
-
-/* Main message */
-
-.welcome-card p {
-  margin: 10px 0;
-
-  font-size: 20px;
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  margin: 32px 0 16px;
 }
-
-/* Description */
-
-.welcome-card .welcome-text {
-  max-width: 600px;
-
-  margin: 20px auto 30px;
-
-  font-size: 16px;
-  line-height: 1.7;
-
-  opacity: 0.9;
+.section-heading h2 {
+  margin: 0;
 }
-
-/* Button */
-
-.welcome-button {
-  display: inline-block;
-
-  padding: 12px 25px;
-
-  background-color: var(--secondary-color);
-  color: var(--primary-color);
-
-  border-radius: 8px;
-
+.section-heading > span {
+  font-size: 12px;
+}
+.quick-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.quick-card {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  padding: 24px;
   text-decoration: none;
-  font-size: 16px;
+  transition:
+    border-color var(--transition),
+    transform var(--transition);
+}
+.quick-card:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+.quick-card h3 {
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+.quick-card p {
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.card-icon {
+  display: flex;
+  flex: 0 0 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: var(--bg);
+  color: var(--primary);
+  font-size: 28px;
+}
+.text-link {
+  color: var(--primary);
+  font-size: 13px;
   font-weight: 700;
-
-  transition: 0.3s ease;
 }
-
-.welcome-button:hover {
-  transform: translateY(-3px);
-
-  box-shadow: 0 6px 15px rgba(255, 239, 179, 0.25);
+@media (max-width: 760px) {
+  .welcome-card {
+    padding: 28px;
+    gap: 20px;
+  }
+  .quick-links {
+    gap: 14px;
+  }
+  .quick-card {
+    padding: 20px;
+    gap: 12px;
+  }
 }
-
-/* Mobile */
-
 @media (max-width: 600px) {
   .welcome-card {
-    padding: 40px 20px;
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 24px;
   }
-
-  .welcome-card h1 {
-    font-size: 30px;
+  .city-art {
+    padding: 12px;
   }
-
-  .welcome-card p {
-    font-size: 18px;
+  .city-art svg {
+    max-height: 145px;
+  }
+  .city-art span {
+    font-size: 7px;
+    letter-spacing: 1px;
+  }
+  .quick-links {
+    grid-template-columns: 1fr;
+  }
+  .section-heading {
+    align-items: start;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: 26px;
   }
 }

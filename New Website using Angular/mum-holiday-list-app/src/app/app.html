@@ -1,4 +1,13 @@
-<app-navbar></app-navbar>
-<main>
-  <router-outlet></router-outlet>
-</main>
+<a
+  class="skip-link"
+  href="#main-content"
+  (click)="$event.preventDefault(); mainContent.focus(); mainContent.scrollIntoView()"
+  >Skip to content</a
+><app-navbar></app-navbar>
+<main #mainContent id="main-content" tabindex="-1"><router-outlet></router-outlet></main>
+<footer>
+  <div class="footer-inner">
+    <span><strong>SBS</strong> Mumbai Holiday List</span
+    ><span>Your office calendar. Your city, connected.</span>
+  </div>
+</footer>

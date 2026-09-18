@@ -1,188 +1,197 @@
-.holiday-main {
-  padding: 20px 15px;
-  /* background-color: #fffae8; */
-}
-
 .holiday-container {
-  max-width: 950px;
-  margin: auto;
-  background: #ffffff;
-  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 5px 15px rgba(1, 62, 55, 0.12);
 }
-
-/* Title */
-
 .holiday-title {
-  background-color: #013e37;
-  color: #ffefb3;
-  text-align: center;
-  padding: 18px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  gap: 16px;
 }
-
-.holiday-title h1 {
-  margin: 0;
-  font-size: 24px;
+.holiday-title h2 {
+  margin: 0 0 4px;
+  font-size: 18px;
 }
-
 .holiday-title p {
-  margin: 4px 0 0;
-  font-size: 13px;
+  margin: 0;
+  font-size: 12px;
 }
-
-/* Table Container */
-
-.tableofholidays {
-  width: 100%;
-  overflow-x: hidden;
-}
-
-/* Table */
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  table-layout: auto;
-}
-
-/* Header */
-
-thead {
-  background-color: #013e37;
-  color: white;
-}
-
-th {
-  padding: 10px 12px;
-  text-align: left;
-  font-size: 14px;
-}
-
-/* Table Data */
-
-td {
-  padding: 10px 12px;
-  border-bottom: 1px solid #eeeeee;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Alternate Rows */
-
-tbody tr:nth-child(even) {
-  background-color: #fffdf5;
-}
-
-/* Hover */
-
-tbody tr {
-  transition: background-color 0.2s ease;
-}
-
-tbody tr:hover {
-  background-color: #ffefb3;
-}
-
-/* Specific Columns */
-
-.month-name,
-.holiday-name {
+.year-tag {
+  border: 1px solid var(--border);
+  padding: 5px 12px;
+  border-radius: 7px;
   font-weight: 600;
-  color: #013e37;
-}
-
-.day-name {
-  font-weight: 500;
-}
-
-@media (max-width: 768px) {
-  .holiday-main {
-    padding: 10px 5px;
-  }
-
-  .holiday-container {
-    width: 100%;
-    border-radius: 8px;
-  }
-
-  .holiday-title {
-    padding: 12px 8px;
-  }
-
-  .holiday-title h1 {
-    font-size: 20px;
-  }
-
-  .holiday-title p {
-    font-size: 11px;
-  }
-
-  .tableofholidays {
-    width: 100%;
-    overflow-x: hidden;
-  }
-
-  table {
-    width: 100%;
-    table-layout: fixed;
-  }
-
-  th,
-  td {
-    padding: 8px 4px;
-    font-size: 11px;
-    word-wrap: break-word;
-  }
-
-  /* Column widths */
-
-  th:nth-child(1),
-  td:nth-child(1) {
-    width: 8%;
-    text-align: center;
-  }
-
-  th:nth-child(2),
-  td:nth-child(2) {
-    width: 18%;
-  }
-
-  th:nth-child(3),
-  td:nth-child(3) {
-    width: 22%;
-  }
-
-  th:nth-child(4),
-  td:nth-child(4) {
-    width: 16%;
-  }
-
-  th:nth-child(5),
-  td:nth-child(5) {
-    width: 36%;
-  }
-
-  .holiday-name {
-    font-size: 11px;
-  }
 }
 .upcoming-holiday {
   display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 5px;
-
-  max-width: 500px;
-  margin: 10px auto 10px;
-  padding: 5px 20px;
-
-  background: #ffefb3;
-  color: #013e37;
-
-  border-radius: 8px;
-  border: 1px solid #e0c96b;
-
+  gap: 16px;
+  margin-bottom: 22px;
+  background: var(--accent-light);
+  border-radius: var(--border-radius);
+  padding: 18px 22px;
+  border: 1px solid var(--primary);
+}
+.calendar-icon {
+  font-size: 28px;
+  line-height: 1;
+}
+.upcoming-copy {
+  flex: 1;
+}
+.upcoming-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+.upcoming-copy strong {
+  font-size: 18px;
+}
+.upcoming-date {
+  font-size: 14px;
+  font-weight: 600;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+thead {
+  background: var(--primary);
+  color: var(--surface);
+}
+th,
+td {
+  padding: 12px 18px;
+  text-align: left;
+  font-size: 13px;
+  overflow-wrap: anywhere;
+}
+th {
   font-size: 12px;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08);
+  font-weight: 600;
+}
+td {
+  border-bottom: 1px solid var(--border);
+}
+th:nth-child(1) {
+  width: 8%;
+}
+th:nth-child(2) {
+  width: 17%;
+}
+th:nth-child(3) {
+  width: 21%;
+}
+th:nth-child(4) {
+  width: 18%;
+}
+th:nth-child(5) {
+  width: 36%;
+}
+th:first-child,
+td:first-child {
+  text-align: center;
+}
+tbody tr {
+  transition: background var(--transition);
+}
+tbody tr:nth-child(even) {
+  background: var(--bg);
+}
+tbody tr:hover {
+  background: color-mix(in srgb, var(--accent-light) 45%, var(--surface));
+}
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+.holiday-name {
+  font-weight: 600;
+}
+.date-cell {
+  font-variant-numeric: tabular-nums;
+}
+.past-holiday td {
+  color: color-mix(in srgb, var(--primary-dark) 78%, var(--surface));
+  font-weight: 400;
+}
+tbody tr.next-holiday {
+  background: var(--accent-light);
+}
+.next-holiday td:first-child {
+  box-shadow: inset 3px 0 var(--primary);
+}
+.upcoming-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 7px;
+  border: 1px solid var(--primary);
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 600;
+}
+.table-note {
+  padding: 12px 24px;
+  margin: 0;
+  border-top: 1px solid var(--border);
+  font-size: 11px;
+}
+@media (max-width: 600px) {
+  th,
+  td {
+    padding: 10px 5px;
+    font-size: 11px;
+  }
+  th {
+    font-size: 10px;
+  }
+  th:nth-child(1) {
+    width: 9%;
+  }
+  th:nth-child(2) {
+    width: 18%;
+  }
+  th:nth-child(3) {
+    width: 20%;
+  }
+  th:nth-child(4) {
+    width: 20%;
+  }
+  th:nth-child(5) {
+    width: 33%;
+  }
+  .holiday-title {
+    padding: 16px;
+  }
+  .upcoming-holiday {
+    padding: 14px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .upcoming-copy strong {
+    font-size: 16px;
+  }
+  .upcoming-date {
+    flex-basis: 100%;
+    padding-left: 38px;
+    font-size: 12px;
+  }
+  .upcoming-badge {
+    margin: 4px 0 0;
+    font-size: 9px;
+    padding: 1px 4px;
+  }
+  .table-note {
+    padding: 12px 16px;
+  }
 }

@@ -1,13 +1,75 @@
-<div class="home-main">
-  <div class="welcome-card">
-    <h1>Welcome to My Website 👋</h1>
-
-    <p>I'm glad to have you here!</p>
-
-    <p class="welcome-text">
-      Explore the Mumbai Holiday List and Mumbai Local Train Map to make your day a little easier.
-    </p>
-
-    <a routerLink="/holiday" class="welcome-button"> Explore Now </a>
+<div class="page-shell">
+  <section class="welcome-card card" aria-labelledby="welcome-title">
+    <div>
+      <span class="eyebrow">Your Mumbai office companion</span>
+      <h1 id="welcome-title">SBS Mumbai<br />Holiday List</h1>
+      <p class="welcome-text">
+        A little planning. A smoother day.<br />Quickly check office holidays and find your way
+        around Mumbai.
+      </p>
+      <a routerLink="/holiday" class="btn-primary"
+        >Explore holidays <span aria-hidden="true">↗</span></a
+      >
+    </div>
+    <div class="city-art" aria-hidden="true">
+      <svg viewBox="0 0 380 230" fill="none">
+        <circle cx="290" cy="62" r="35" fill="var(--bg)" />
+        <path
+          d="M20 200H360M34 200V126H69V200M44 137H59M44 150H59M85 200V85H122V200M94 101H112M94 115H112M94 129H112M276 200V111H310V200M285 125H300M285 140H300M326 200V149H350V200"
+          stroke="var(--primary)"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+        <path
+          d="M145 200V118H247V200M139 118H253L242 104H150L139 118ZM154 104V80H171V104M221 104V80H238V104M153 80L162 67L172 80M220 80L229 67L239 80M181 104V87H210V104M178 87L195 68L213 87M177 200V165C177 139 215 139 215 165V200"
+          stroke="var(--primary-dark)"
+          stroke-width="3"
+          stroke-linejoin="round"
+        />
+        <rect
+          x="29"
+          y="22"
+          width="103"
+          height="72"
+          rx="10"
+          fill="var(--surface)"
+          stroke="var(--primary)"
+          stroke-width="2"
+        />
+        <path
+          d="M29 45H132M52 16V29M109 16V29M50 61H59M75 61H84M101 61H110M50 76H59M75 76H84"
+          stroke="var(--primary)"
+          stroke-width="3"
+          stroke-linecap="round"
+        />
+        <path d="M99 75L104 80L114 68" stroke="var(--primary-dark)" stroke-width="3" />
+        <path
+          d="M25 214C50 206 72 222 95 214S142 206 166 214S214 222 239 214S286 206 310 214S344 220 360 214"
+          stroke="var(--primary)"
+          stroke-width="2"
+        /></svg
+      ><span>MUMBAI · WORK, LIFE & EVERYTHING BETWEEN</span>
+    </div>
+  </section>
+  <div class="section-heading">
+    <h2>Ahead of your day</h2>
+    <span>Two essentials. One place.</span>
+  </div>
+  <div class="quick-links">
+    <a routerLink="/holiday" class="card quick-card"
+      ><span class="card-icon" aria-hidden="true">▦</span>
+      <div>
+        <h3>Plan your time off</h3>
+        <p>Browse the office calendar and see which holiday is coming up next.</p>
+        <span class="text-link">View holiday list →</span>
+      </div></a
+    ><a routerLink="/localmap" class="card quick-card"
+      ><span class="card-icon" aria-hidden="true">⌁</span>
+      <div>
+        <h3>Find your way around</h3>
+        <p>Keep the Mumbai local train map handy for your everyday commute.</p>
+        <span class="text-link">Explore local map →</span>
+      </div></a
+    >
   </div>
 </div>
