@@ -1,3 +1,12 @@
+.page-shell {
+  padding: 24px 0;
+}
+.page-heading {
+  margin-bottom: 16px;
+}
+.page-heading h1 {
+  margin-bottom: 6px;
+}
 .holiday-container {
   overflow: hidden;
 }
@@ -5,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 24px;
+  padding: 14px 20px;
   gap: 16px;
 }
 .holiday-title h2 {
@@ -23,14 +32,18 @@
   font-weight: 600;
 }
 .upcoming-holiday {
+  position: sticky;
+  top: 72px;
+  z-index: 10;
   display: flex;
   align-items: center;
   gap: 16px;
-  margin-bottom: 22px;
+  margin-bottom: 14px;
   background: var(--accent-light);
   border-radius: var(--border-radius);
-  padding: 18px 22px;
+  padding: 12px 18px;
   border: 1px solid var(--primary);
+  box-shadow: var(--shadow);
 }
 .calendar-icon {
   font-size: 28px;
@@ -72,7 +85,7 @@ thead {
 }
 th,
 td {
-  padding: 12px 18px;
+  padding: 8px 18px;
   text-align: left;
   font-size: 13px;
   overflow-wrap: anywhere;
@@ -141,15 +154,18 @@ tbody tr.next-holiday {
   font-weight: 600;
 }
 .table-note {
-  padding: 12px 24px;
+  padding: 8px 20px;
   margin: 0;
   border-top: 1px solid var(--border);
   font-size: 11px;
 }
 @media (max-width: 600px) {
+  .page-shell {
+    padding: 18px 0;
+  }
   th,
   td {
-    padding: 10px 5px;
+    padding: 7px 5px;
     font-size: 11px;
   }
   th {
@@ -171,10 +187,11 @@ tbody tr.next-holiday {
     width: 33%;
   }
   .holiday-title {
-    padding: 16px;
+    padding: 12px 14px;
   }
   .upcoming-holiday {
-    padding: 14px;
+    top: 66px;
+    padding: 10px 14px;
     gap: 10px;
     flex-wrap: wrap;
   }
@@ -192,6 +209,6 @@ tbody tr.next-holiday {
     padding: 1px 4px;
   }
   .table-note {
-    padding: 12px 16px;
+    padding: 8px 14px;
   }
 }
