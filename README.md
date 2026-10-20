@@ -17,10 +17,8 @@ The application uses a balanced blue and aqua color palette for a modern, profes
 
 | Color | Hex Code | Usage |
 |---|---|---|
-| Light Background | `#F1FAEE` | Main page background |
-| Light Aqua | `#A8DADC` | Highlights and hover backgrounds |
-| Primary Blue | `#457B9D` | Buttons, icons, and table headers |
-| Dark Navy | `#1D3557` | Navbar, headings, and important text |
+| Cream Background | `#f3e8bc` | Main page background |
+| Teal | `#035352` | Navbar and main content |
 | White | `#FFFFFF` | Cards and content surfaces |
 
 ## 🛠️ Technologies Used
