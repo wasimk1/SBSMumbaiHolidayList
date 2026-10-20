@@ -1,15 +1,38 @@
 .welcome-card {
+  background: linear-gradient(125deg, var(--primary), var(--primary-dark));
+  color: var(--accent-light);
   display: grid;
   grid-template-columns: 1.1fr 1fr;
   align-items: center;
-  padding: 36px 40px;
+  padding: 44px 40px;
   gap: 30px;
+}
+.welcome-card h1,
+.welcome-card .eyebrow {
+  color: var(--accent-light);
+}
+.welcome-card h1 {
+  font-size: clamp(32px, 4.5vw, 52px);
+  letter-spacing: -1.5px;
+}
+.welcome-card .btn-primary {
+  background: var(--accent-light);
+  color: var(--primary);
+  box-shadow: 0 4px 14px #00000014;
+}
+.welcome-card .btn-primary:hover {
+  background: var(--surface);
+}
+.welcome-card a:focus-visible {
+  outline-color: var(--accent-light);
 }
 .welcome-text {
   margin: 18px 0 24px;
   max-width: 380px;
 }
 .city-art {
+  color: var(--primary);
+  box-shadow: 0 12px 28px #00000014;
   background: var(--accent-light);
   border-radius: var(--border-radius);
   padding: 24px 18px 18px;
@@ -57,6 +80,7 @@
     transform var(--transition);
 }
 .quick-card:hover {
+  box-shadow: 0 12px 28px color-mix(in srgb, var(--primary) 12%, transparent);
   border-color: var(--primary);
   transform: translateY(-2px);
 }
@@ -75,8 +99,8 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
-  background: var(--bg);
-  color: var(--primary);
+  background: var(--primary);
+  color: var(--accent-light);
   font-size: 28px;
 }
 .text-link {

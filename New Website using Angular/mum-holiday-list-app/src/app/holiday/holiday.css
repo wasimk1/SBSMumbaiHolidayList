@@ -26,6 +26,8 @@
   font-size: 12px;
 }
 .year-tag {
+  background: var(--accent-light);
+  color: var(--primary);
   border: 1px solid var(--border);
   padding: 5px 12px;
   border-radius: 7px;
@@ -39,7 +41,8 @@
   align-items: center;
   gap: 16px;
   margin-bottom: 14px;
-  background: var(--accent-light);
+  background: var(--primary);
+  color: var(--accent-light);
   border-radius: var(--border-radius);
   padding: 12px 18px;
   border: 1px solid var(--primary);
@@ -81,7 +84,7 @@ caption {
 }
 thead {
   background: var(--primary);
-  color: var(--surface);
+  color: var(--accent-light);
 }
 th,
 td {
@@ -120,7 +123,7 @@ tbody tr {
   transition: background var(--transition);
 }
 tbody tr:nth-child(even) {
-  background: var(--bg);
+  background: color-mix(in srgb, var(--bg) 35%, var(--surface));
 }
 tbody tr:hover {
   background: color-mix(in srgb, var(--accent-light) 45%, var(--surface));
@@ -145,6 +148,8 @@ tbody tr.next-holiday {
   box-shadow: inset 3px 0 var(--primary);
 }
 .upcoming-badge {
+  background: var(--primary);
+  color: var(--accent-light);
   display: inline-block;
   margin-left: 8px;
   padding: 2px 7px;

@@ -3,6 +3,8 @@
   margin: 0;
 }
 figcaption {
+  background: var(--primary);
+  color: var(--accent-light);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,6 +15,9 @@ figcaption {
 }
 .image {
   padding: 18px;
+}
+figcaption a:focus-visible {
+  outline-color: var(--accent-light);
 }
 .image img {
   width: 100%;
