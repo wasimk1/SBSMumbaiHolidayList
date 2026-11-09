@@ -8,27 +8,19 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './holiday.html',
 })
 export class Holiday implements OnInit {
-  //strImageName: string = 'images/mumbaiholidaylist2026.jpg';
+  // Image properties
   strImageName: string = '';
   strAltName: string = 'mumbai holiday list 2026';
+
+  // Other properties
   intSrNo: number = 0;
-  upcomingHoliday: any;
 
-  getDay(date: Date): string {
-    return date.toLocaleDateString('en-US', {
-      weekday: 'long',
-    });
-  }
-  getSrNo(monthIndex: number, holidayIndex: number): number {
-    let count = 0;
+  currentHoliday: any = null;
+  upcomingHoliday: any = null;
 
-    for (let i = 0; i < monthIndex; i++) {
-      count += this.tableData[i].strHolidayName.length;
-    }
-
-    return count + holidayIndex + 1;
-  }
   tableHeader: string[] = ['Sr.No.', 'Month', 'Date', 'Day', 'Holiday'];
+
+  // Holiday data
   tableData: any[] = [
     {
       strMonthName: 'January',
@@ -72,35 +64,82 @@ export class Holiday implements OnInit {
     },
   ];
 
-  getUpcomingHoliday() {
-    const today = new Date();
+  // Get day name from date
+  getDay(date: Date): string {
+    return date.toLocaleDateString('en-US', {
+      weekday: 'long',
+    });
+  }
 
-    // Remove the time
-    today.setHours(0, 0, 0, 0);
+  // Get serial number
+  getSrNo(monthIndex: number, holidayIndex: number): number {
+    let count = 0;
 
-    let upcomingHoliday: any = null;
+    for (let i = 0; i < monthIndex; i++) {
+      count += this.tableData[i].strHolidayName.length;
+    }
 
+    return count + holidayIndex + 1;
+  }
+
+  // Normalize date (remove time)
+  private normalizeDate(date: Date): Date {
+    const normalized = new Date(date);
+    normalized.setHours(0, 0, 0, 0);
+    return normalized;
+  }
+
+  // Get today's holiday and next upcoming holiday
+  getHolidayInfo(): void {
+    const today = this.normalizeDate(new Date());
+
+    const allHolidays: any[] = [];
+
+    // Collect all holidays
     for (const month of this.tableData) {
       for (let i = 0; i < month.HolidayDate.length; i++) {
-        const holidayDate = new Date(month.HolidayDate[i]);
+        const holidayDate = this.normalizeDate(month.HolidayDate[i]);
 
-        // Remove the time
-        holidayDate.setHours(0, 0, 0, 0);
-
-        if (holidayDate >= today) {
-          if (upcomingHoliday === null || holidayDate < upcomingHoliday.date) {
-            upcomingHoliday = {
-              name: month.strHolidayName[i],
-              date: holidayDate,
-              month: month.strMonthName,
-            };
-          }
-        }
+        allHolidays.push({
+          name: month.strHolidayName[i],
+          date: holidayDate,
+          month: month.strMonthName,
+        });
       }
     }
-    return upcomingHoliday;
+
+    // Sort holidays by date
+    allHolidays.sort((a, b) => a.date.getTime() - b.date.getTime());
+
+    // Find today's holiday
+    this.currentHoliday = allHolidays.find((h) => h.date.getTime() === today.getTime()) || null;
+
+    // Find the next future holiday (exclude today)
+    this.upcomingHoliday = allHolidays.find((h) => h.date.getTime() > today.getTime()) || null;
   }
-  ngOnInit() {
-    this.upcomingHoliday = this.getUpcomingHoliday();
+
+  // Check if holiday is today
+  isTodayHoliday(date: Date): boolean {
+    if (!this.currentHoliday) return false;
+
+    return this.normalizeDate(date).getTime() === this.currentHoliday.date.getTime();
+  }
+
+  // Check if holiday is the next upcoming holiday
+  isUpcomingHoliday(date: Date): boolean {
+    if (!this.upcomingHoliday) return false;
+
+    return this.normalizeDate(date).getTime() === this.upcomingHoliday.date.getTime();
+  }
+
+  // Check if holiday is in the past
+  isPastHoliday(date: Date): boolean {
+    const today = this.normalizeDate(new Date());
+
+    return this.normalizeDate(date).getTime() < today.getTime();
+  }
+
+  ngOnInit(): void {
+    this.getHolidayInfo();
   }
 }

@@ -1,15 +1,19 @@
 .page-shell {
   padding: 24px 0;
 }
+
 .page-heading {
   margin-bottom: 16px;
 }
+
 .page-heading h1 {
   margin-bottom: 6px;
 }
+
 .holiday-container {
   overflow: hidden;
 }
+
 .holiday-title {
   display: flex;
   align-items: center;
@@ -17,14 +21,17 @@
   padding: 14px 20px;
   gap: 16px;
 }
+
 .holiday-title h2 {
   margin: 0 0 4px;
   font-size: 18px;
 }
+
 .holiday-title p {
   margin: 0;
   font-size: 12px;
 }
+
 .year-tag {
   background: var(--accent-light);
   color: var(--primary);
@@ -33,6 +40,8 @@
   border-radius: 7px;
   font-weight: 600;
 }
+
+/* Existing upcoming holiday header card - unchanged */
 .upcoming-holiday {
   position: sticky;
   top: 72px;
@@ -48,13 +57,16 @@
   border: 1px solid var(--primary);
   box-shadow: var(--shadow);
 }
+
 .calendar-icon {
   font-size: 28px;
   line-height: 1;
 }
+
 .upcoming-copy {
   flex: 1;
 }
+
 .upcoming-label {
   display: block;
   font-size: 10px;
@@ -62,18 +74,23 @@
   letter-spacing: 1.3px;
   text-transform: uppercase;
 }
+
 .upcoming-copy strong {
   font-size: 18px;
 }
+
 .upcoming-date {
   font-size: 14px;
   font-weight: 600;
 }
+
+/* Table */
 table {
   width: 100%;
   border-collapse: collapse;
   table-layout: fixed;
 }
+
 caption {
   position: absolute;
   width: 1px;
@@ -82,10 +99,12 @@ caption {
   overflow: hidden;
   clip-path: inset(50%);
 }
+
 thead {
   background: var(--primary);
   color: var(--accent-light);
 }
+
 th,
 td {
   padding: 8px 18px;
@@ -93,61 +112,93 @@ td {
   font-size: 13px;
   overflow-wrap: anywhere;
 }
+
 th {
   font-size: 12px;
   font-weight: 600;
 }
+
 td {
   border-bottom: 1px solid var(--border);
 }
+
 th:nth-child(1) {
   width: 8%;
 }
+
 th:nth-child(2) {
   width: 17%;
 }
+
 th:nth-child(3) {
   width: 21%;
 }
+
 th:nth-child(4) {
   width: 18%;
 }
+
 th:nth-child(5) {
   width: 36%;
 }
+
 th:first-child,
 td:first-child {
   text-align: center;
 }
+
 tbody tr {
   transition: background var(--transition);
 }
+
 tbody tr:nth-child(even) {
   background: color-mix(in srgb, var(--bg) 35%, var(--surface));
 }
+
 tbody tr:hover {
   background: color-mix(in srgb, var(--accent-light) 45%, var(--surface));
 }
+
 tbody tr:last-child td {
   border-bottom: 0;
 }
+
 .holiday-name {
   font-weight: 600;
 }
+
 .date-cell {
   font-variant-numeric: tabular-nums;
 }
+
+/* Past holidays */
 .past-holiday td {
   color: color-mix(in srgb, var(--primary-dark) 78%, var(--surface));
   font-weight: 400;
 }
+
+/* Today's holiday */
+tbody tr.today-holiday {
+  background: var(--accent-light);
+}
+
+.today-holiday td:first-child {
+  box-shadow: inset 3px 0 var(--primary);
+}
+
+/* Upcoming holiday */
 tbody tr.next-holiday {
   background: var(--accent-light);
 }
+
 .next-holiday td:first-child {
   box-shadow: inset 3px 0 var(--primary);
 }
-.upcoming-badge {
+
+/* NOW badge */
+/* Upcoming badge */
+.upcoming-badge,
+.now-badge {
   background: var(--primary);
   color: var(--accent-light);
   display: inline-block;
@@ -158,61 +209,78 @@ tbody tr.next-holiday {
   font-size: 10px;
   font-weight: 600;
 }
+
 .table-note {
   padding: 8px 20px;
   margin: 0;
   border-top: 1px solid var(--border);
   font-size: 11px;
 }
+
+/* Responsive */
 @media (max-width: 600px) {
   .page-shell {
     padding: 18px 0;
   }
+
   th,
   td {
     padding: 7px 5px;
     font-size: 11px;
   }
+
   th {
     font-size: 10px;
   }
+
   th:nth-child(1) {
     width: 9%;
   }
+
   th:nth-child(2) {
     width: 18%;
   }
+
   th:nth-child(3) {
     width: 20%;
   }
+
   th:nth-child(4) {
     width: 20%;
   }
+
   th:nth-child(5) {
     width: 33%;
   }
+
   .holiday-title {
     padding: 12px 14px;
   }
+
   .upcoming-holiday {
     top: 66px;
     padding: 10px 14px;
     gap: 10px;
     flex-wrap: wrap;
   }
+
   .upcoming-copy strong {
     font-size: 16px;
   }
+
   .upcoming-date {
     flex-basis: 100%;
     padding-left: 38px;
     font-size: 12px;
   }
-  .upcoming-badge {
+
+  .upcoming-badge,
+  .now-badge {
     margin: 4px 0 0;
     font-size: 9px;
     padding: 1px 4px;
   }
+
   .table-note {
     padding: 8px 14px;
   }
