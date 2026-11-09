@@ -15,6 +15,9 @@ concurrency:
   group: github-pages
   cancel-in-progress: true
 
+env:
+  APP_DIR: New Website using Angular/mum-holiday-list-app
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,28 +28,27 @@ jobs:
       id-token: write
 
     steps:
-      # Checkout repository
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Setup Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 22
           cache: npm
+          cache-dependency-path: New Website using Angular/mum-holiday-list-app/package-lock.json
 
-      # Install dependencies
       - name: Install dependencies
+        working-directory: New Website using Angular/mum-holiday-list-app
         run: npm ci
 
-      # Build Angular application
       - name: Build Angular application
+        working-directory: New Website using Angular/mum-holiday-list-app
         run: npm run build -- --base-href /SBSMumbaiHolidayList/
 
-      # Detect Angular build output directory
       - name: Detect build output directory
         id: output
+        working-directory: New Website using Angular/mum-holiday-list-app
         run: |
           node <<'NODE'
           const fs = require('fs');
@@ -64,19 +66,12 @@ jobs:
           const build =
             project.architect?.build || project.targets?.build;
 
-          if (!build) {
-            throw new Error('Angular build configuration not found.');
-          }
-
-          const output = build.options.outputPath;
-
-          if (!output) {
+          if (!build || !build.options.outputPath) {
             throw new Error('Angular outputPath not found.');
           }
 
-          const base =
-            typeof output === 'string' ? output : output.base;
-
+          const output = build.options.outputPath;
+          const base = typeof output === 'string' ? output : output.base;
           const browserFolder =
             typeof output === 'object' && output.browser
               ? output.browser
@@ -89,48 +84,43 @@ jobs:
             : base;
 
           if (!fs.existsSync(path.join(publishPath, 'index.html'))) {
-            throw new Error(
-              `index.html not found in ${publishPath}`
-            );
+            throw new Error(`index.html not found in ${publishPath}`);
           }
+
+          const absolutePath = path.resolve(publishPath);
 
           fs.appendFileSync(
             process.env.GITHUB_OUTPUT,
-            `path=${publishPath}\n`
+            `path=${absolutePath}\n`
           );
 
-          console.log(`Publishing directory: ${publishPath}`);
+          console.log(`Publishing: ${absolutePath}`);
           NODE
 
-      # Configure GitHub Pages
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v5
 
-      # Add .nojekyll file
       - name: Add .nojekyll
         run: touch "${{ steps.output.outputs.path }}/.nojekyll"
 
-      # Upload build artifact
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ${{ steps.output.outputs.path }}
 
   deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
-
-    runs-on: ubuntu-latest
-
-    needs: build
 
     permissions:
       pages: write
       id-token: write
 
     steps:
-      # Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
